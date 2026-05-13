@@ -1,0 +1,32 @@
+.card {
+  background-color: white;
+  border-radius: 12px;
+  border: none;
+  width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  display: block;
+}
+
+.card-link {
+  font-size: 0.82rem;
+  color: #64748b;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: #3b82f6;
+}

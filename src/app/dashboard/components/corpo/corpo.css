@@ -1,0 +1,37 @@
+.corpo {
+    background-color: #F7FBFD;
+    min-height: 100vh;
+}
+.titulo {
+    font-size: 1.6rem;
+    font-weight: var(--font-bold);
+}
+.subtitulo {
+    font-size: 1rem;
+    font-weight: var(--font-bold);
+}
+.sub-subtitulo {
+    font-size: 0.9rem;
+}
+
+.atalho {
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.atalho:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  color: #3b82f6;
+}
+
+.acesso {
+    flex-direction: column;
+}

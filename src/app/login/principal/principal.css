@@ -1,0 +1,5 @@
+.principal {
+    width: 100%;
+    height: 100vh; /* 👈 ocupa a tela inteira */
+    background: linear-gradient(to bottom, #2381EB, #89C7FA);
+}
