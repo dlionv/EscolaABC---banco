@@ -1,0 +1,9 @@
+.header {
+  background-color: white;
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight: var(--font-medium);
+  margin: 0;
+}
