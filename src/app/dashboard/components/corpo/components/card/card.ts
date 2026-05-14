@@ -1,13 +1,16 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card',
-  imports: [],
+  imports: [RouterLink],
+  standalone: true,
   templateUrl: './card.html',
-  styleUrl: './card.css',
+  styleUrls: ['./card.css'],
 })
-export class Card {
-  totalRelatorio = input<number>();
-  label = input<string>();
-  titulo = input<string>();
+export class CardComponent {
+  totalRelatorio = input<number>(0);
+  label = input<string>('');
+  titulo = input<string>('');
+  rota = input<string>('');
 }

@@ -1,12 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Card } from "./components/card/card";
+import { CardComponent } from "./components/card/card";
 import { EscolaService } from '../../../services/escola.service';
+import { RouterLink } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-corpo',
-  imports: [Card],
+  imports: [CardComponent, RouterLink],
+  standalone: true,
   templateUrl: './corpo.html',
-  styleUrl: './corpo.css',
+  styleUrls: ['./corpo.css'],
 })
 export class Corpo implements OnInit{
   escolaService = inject(EscolaService);
@@ -20,19 +23,39 @@ export class Corpo implements OnInit{
   }
 
   carregarDados() {
-    this.escolaService.getAlunos().subscribe({
-      next: (alunos) => { this.totalAlunos = alunos.length; },
-      error: () => { this.totalAlunos = 0; }
-    });
 
-    this.escolaService.getProfessores().subscribe({
-      next: (professores) => { this.totalProfessores = professores.length; },
-      error: () => { this.totalProfessores = 0; }
-    });
+  console.log('INICIO');
 
-    this.escolaService.getTurmas().subscribe({
-      next: (turmas) => { this.totalTurmas = turmas.length; },
-      error: () => { this.totalTurmas = 0; }
-    });
-  }
+  forkJoin({
+    alunos: this.escolaService.getAlunos(),
+    professores: this.escolaService.getProfessores(),
+    turmas: this.escolaService.getTurmas()
+  }).subscribe({
+
+    next: ({ alunos, professores, turmas }) => {
+
+      console.log('NEXT');
+
+      console.log(alunos);
+
+      this.totalAlunos = alunos.length;
+
+      console.log('TOTAL:', this.totalAlunos);
+
+      this.totalProfessores = professores.length;
+      this.totalTurmas = turmas.length;
+    },
+
+    error: (err) => {
+
+      console.log('ERROR');
+      console.log(err);
+
+      this.totalAlunos = 0;
+      this.totalProfessores = 0;
+      this.totalTurmas = 0;
+    }
+
+  });
+}
 }
