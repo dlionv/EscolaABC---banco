@@ -1,0 +1,54 @@
+<div class="p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0">Alunos</h2>
+    <div class="botoes d-flex gap-2">
+        <button class="btn btn-primary" (click)="abrirModal()">+ Novo Aluno</button>
+        <a href="/" class="btn btn-primary">Voltar</a>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Matrícula</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Turma</th>
+          <th>Sexo</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (aluno of alunos; track aluno.matricula) {
+          <tr>
+            <td>{{ aluno.matricula }}</td>
+            <td>{{ aluno.nome_aluno }}</td>
+            <td>{{ aluno.email_aluno }}</td>
+            <td>{{ aluno.telefone_aluno }}</td>
+            <td>{{ aluno.nome_turma ?? aluno.id_turma }}</td>
+            <td>{{ aluno.sexo }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="abrirModal(aluno)">✏️</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="excluir(aluno.matricula)">🗑️</button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" class="text-center text-muted">Nenhum aluno cadastrado.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+@if (modalAberto) {
+  <app-modal-aluno
+    [alunoEditando]="alunoSelecionado"
+    [turmas]="turmas"
+    (fechar)="fecharModal()"
+    (salvo)="onSalvo()"
+  />
+}

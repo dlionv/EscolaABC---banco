@@ -2,7 +2,7 @@
     <h1 class="titulo m-0 pb-1">Bem-vindo ao EscolaABC</h1>
     <p class="subtitulo m-0">Visão geral do sistema acadêmico</p>
     <div class="cards d-flex gap-3 pt-4 justify-content-between">
-        <app-card [totalRelatorio]="totalAlunos" [label]="'Ver alunos ->'" [titulo]="'Total de Alunos'" />
+        <app-card [totalRelatorio]="totalAlunos" [label]="'Ver aluno ->'" [titulo]="'Total de Alunos'" [rota]="'alunos'"/>
         <app-card [totalRelatorio]="totalProfessores" [label]="'Ver professores ->'" [titulo]="'Total de Professores'" />
         <app-card [totalRelatorio]="totalTurmas" [label]="'Ver turmas ->'" [titulo]="'Total de Turmas'" />
     </div>

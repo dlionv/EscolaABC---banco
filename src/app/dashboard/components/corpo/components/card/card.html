@@ -1,5 +1,5 @@
 <div class="card p-3">
   <span class="card-label">{{ titulo() }}</span>
   <span class="card-value">{{ totalRelatorio() }}</span>
-  <a routerLink="/alunos" class="card-link">{{ label() }}</a>
+  <a [routerLink]="rota()" class="card-link">{{ label() }}</a>
 </div>
