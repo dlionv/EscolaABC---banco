@@ -1,0 +1,51 @@
+<div class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.5)">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastrar Professor</h5>
+        <button type="button" class="btn-close" (click)="onFechar()"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- DADOS DO PROFESSOR -->
+        <h6 class="text-muted mb-3">Dados do Professor</h6>
+        <div class="row g-3">
+          <div class="col-md-8">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" [(ngModel)]="form.nome_prof" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Telefone</label>
+            <input type="text" class="form-control" [(ngModel)]="form.telefone_prof" />
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-control" [(ngModel)]="form.email_prof" />
+          </div>
+        </div>
+
+        <!-- ENDEREÇO -->
+        <hr class="my-4" />
+        <h6 class="text-muted mb-3">Endereço</h6>
+        <app-form-endereco [endereco]="formEndereco" />
+
+        @if (erro) {
+          <div class="alert alert-danger mt-3">{{ erro }}</div>
+        }
+        @if (sucesso) {
+          <div class="alert alert-success mt-3">{{ sucesso }}</div>
+        }
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="onFechar()">Cancelar</button>
+        <button class="btn btn-primary" (click)="salvar()" [disabled]="salvando">
+          {{ salvando ? 'Salvando...' : 'Cadastrar' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

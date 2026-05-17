@@ -4,13 +4,16 @@ import { Observable } from 'rxjs';
 import {
   Aluno,
   AlunoCreate,
+  AlunoUpdate,
   ApiResponse,
   BoletimAluno,
   DisciplinaCreate,
   EnderecoCreate,
+  EnderecoResponse,
   NotaUpdate,
   Professor,
   ProfessorCreate,
+  Responsavel,
   ResponsavelCreate,
   SituacaoAluno,
   Turma,
@@ -53,7 +56,7 @@ export class EscolaService {
   }
 
   // PUT /alunos/{matricula}
-  atualizarAluno(matricula: number, aluno: AlunoCreate): Observable<ApiResponse> {
+  atualizarAluno(matricula: number, aluno: AlunoUpdate): Observable<ApiResponse> {
     return this.http.put<ApiResponse>(`${this.api}/alunos/${matricula}`, aluno);
   }
 
@@ -121,9 +124,9 @@ export class EscolaService {
   // -------------------------------------------------------
 
   // POST /enderecos
-  cadastrarEndereco(end: EnderecoCreate): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${this.api}/enderecos`, end);
-  }
+  cadastrarEndereco(end: EnderecoCreate): Observable<EnderecoResponse> {
+    return this.http.post<EnderecoResponse>(`${this.api}/enderecos`, end);
+  } 
 
   // -------------------------------------------------------
   // RESPONSÁVEIS
@@ -132,5 +135,9 @@ export class EscolaService {
   // POST /responsaveis
   cadastrarResponsavel(resp: ResponsavelCreate): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.api}/responsaveis`, resp);
+  }
+
+  getResponsavelPorCpf(cpf: string): Observable<Responsavel> {
+    return this.http.get<Responsavel>(`${this.api}/responsaveis/${cpf}`);
   }
 }

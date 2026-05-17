@@ -69,6 +69,16 @@ export interface AlunoCreate {
   data_nasc: string; // formato: 'YYYY-MM-DD'
   sexo: string;      // 'M' ou 'F'
   id_turma: number;
+  cpf_responsavel: string;
+}
+
+export interface AlunoUpdate {
+  nome_aluno: string;
+  telefone_aluno: string;
+  email_aluno: string;
+  data_nasc: string;
+  sexo: string;
+  id_turma: number;
 }
 
 // POST /notas/lancar
@@ -89,6 +99,11 @@ export interface EnderecoCreate {
   cep: string;
 }
 
+export interface EnderecoResponse {
+  id_endereco: number;
+  message: string;
+}
+
 // POST /professores — requer id_endereco de um endereço já cadastrado
 export interface ProfessorCreate {
   nome_prof: string;
@@ -101,9 +116,14 @@ export interface ProfessorCreate {
 export interface ResponsavelCreate {
   cpf: string;
   nome_resp: string;
-  telefone: string;
-  email: string;
+  telefone_resp: string;  // ← era telefone
+  email_resp: string;     // ← era email
   id_endereco: number;
+}
+
+export interface Responsavel {
+  cpf: string;
+  nome_resp: string;
 }
 
 // POST /disciplinas

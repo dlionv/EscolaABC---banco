@@ -1,0 +1,27 @@
+<div class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">CEP</label>
+    <input type="text" class="form-control" [(ngModel)]="endereco.cep"
+           maxlength="8" placeholder="Somente números" />
+  </div>
+  <div class="col-md-8">
+    <label class="form-label">Rua</label>
+    <input type="text" class="form-control" [(ngModel)]="endereco.rua" />
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Número</label>
+    <input type="number" class="form-control" [(ngModel)]="endereco.numero" />
+  </div>
+  <div class="col-md-5">
+    <label class="form-label">Bairro</label>
+    <input type="text" class="form-control" [(ngModel)]="endereco.bairro" />
+  </div>
+  <div class="col-md-5">
+    <label class="form-label">Cidade</label>
+    <input type="text" class="form-control" [(ngModel)]="endereco.cidade" />
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">UF</label>
+    <input type="text" class="form-control" [(ngModel)]="endereco.uf" maxlength="2" />
+  </div>
+</div>

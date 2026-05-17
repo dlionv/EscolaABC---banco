@@ -1,0 +1,47 @@
+<div class="p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0">Professores</h2>
+    <div class="botoes d-flex gap-2">
+      <button class="btn btn-primary" (click)="abrirModal()">+ Novo Professor</button>
+      <a href="/" class="btn btn-primary">Voltar</a>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (professor of professores; track professor.id_professor) {
+          <tr>
+            <td>{{ professor.id_professor }}</td>
+            <td>{{ professor.nome_prof }}</td>
+            <td>{{ professor.email_prof }}</td>
+            <td>{{ professor.telefone_prof }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-danger" (click)="excluir(professor.id_professor)">🗑️</button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="text-center text-muted">Nenhum professor cadastrado.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+@if (modalAberto) {
+  <app-modal-professor
+    (fechar)="fecharModal()"
+    (salvo)="onSalvo()"
+  />
+}
