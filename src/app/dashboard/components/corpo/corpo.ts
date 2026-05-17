@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { CardComponent } from "./components/card/card";
 import { EscolaService } from '../../../services/escola.service';
 import { RouterLink } from '@angular/router';
@@ -12,6 +12,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./corpo.css'],
 })
 export class Corpo implements OnInit{
+  cdr = inject(ChangeDetectorRef);
   escolaService = inject(EscolaService);
 
   totalAlunos: number = 0;
@@ -44,6 +45,7 @@ export class Corpo implements OnInit{
 
       this.totalProfessores = professores.length;
       this.totalTurmas = turmas.length;
+      this.cdr.detectChanges();
     },
 
     error: (err) => {

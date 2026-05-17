@@ -8,8 +8,7 @@ import { Corpo } from "../components/corpo/corpo";
   selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule, RouterModule, Header, Corpo],
-  templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css']
+  templateUrl: './dashboard.html'
 })
 export class DashboardComponent {
 

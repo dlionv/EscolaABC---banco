@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { EscolaService } from '../../services/escola.service';
 import { Aluno, Turma } from '../../models/escola.model';
 import { ModalAlunoComponent } from './components/modal-aluno/modal-aluno';
-import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-aluno',
   standalone: true,
-  imports: [CommonModule, ModalAlunoComponent, RouterLink],
+  imports: [CommonModule, ModalAlunoComponent],
   templateUrl: './aluno.html',
   styleUrl: './aluno.css'
 })

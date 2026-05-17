@@ -1,15 +1,21 @@
 <div class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.5)">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title">{{ editando ? 'Editar Aluno' : 'Cadastrar Aluno' }}</h5>
         <button type="button" class="btn-close" (click)="onFechar()"></button>
       </div>
+
       <div class="modal-body">
+
+        <!-- DADOS DO ALUNO -->
+        <h6 class="text-muted mb-3">Dados do Aluno</h6>
         <div class="row g-3">
           <div class="col-md-4">
             <label class="form-label">Matrícula</label>
-            <input type="number" class="form-control" [(ngModel)]="form.matricula" [disabled]="editando" />
+            <input type="number" class="form-control"
+                   [(ngModel)]="form.matricula" [disabled]="editando" />
           </div>
           <div class="col-md-8">
             <label class="form-label">Nome</label>
@@ -45,15 +51,25 @@
             </select>
           </div>
         </div>
+
+        <!-- RESPONSÁVEL (só no cadastro) -->
+        @if (!editando) {
+          <hr class="my-4" />
+          <h6 class="text-muted mb-3">Responsável</h6>
+          <app-form-responsavel #formResponsavel />
+}
+
         <div *ngIf="erro" class="alert alert-danger mt-3">{{ erro }}</div>
         <div *ngIf="sucesso" class="alert alert-success mt-3">{{ sucesso }}</div>
       </div>
+
       <div class="modal-footer">
         <button class="btn btn-secondary" (click)="onFechar()">Cancelar</button>
-        <button class="btn btn-primary" (click)="salvar()">
-          {{ editando ? 'Salvar Alterações' : 'Cadastrar' }}
+        <button class="btn btn-primary" (click)="salvar()" [disabled]="salvando">
+          {{ salvando ? 'Salvando...' : (editando ? 'Salvar Alterações' : 'Cadastrar') }}
         </button>
       </div>
+
     </div>
   </div>
 </div>
