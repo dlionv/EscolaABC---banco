@@ -1,0 +1,70 @@
+.pagina{
+    min-height: 100vh;
+    background: #f1f5f9;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.voltar{
+    background: #334155;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.voltar:hover{
+    background: #1e293b;
+}
+
+.card{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h1{
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+label{
+    font-weight: bold;
+    color: #334155;
+}
+
+input{
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 16px;
+}
+
+input:focus{
+    outline: none;
+    border-color: #2563eb;
+}
+
+.salvar{
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.salvar:hover{
+    background: #1d4ed8;
+}
